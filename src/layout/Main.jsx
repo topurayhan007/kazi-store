@@ -9,9 +9,7 @@ const Main = () => {
       <Navbar />
 
       {/* Dynamic Pages According to Routes */}
-      <div className="wrapper">
-        <Outlet />
-      </div>
+      <Outlet />
 
       {/* Footer */}
       <Footer />

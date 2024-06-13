@@ -1,11 +1,13 @@
+import ProductSection from "../components/ProductSection";
+
 const LandingPage = () => {
   return (
-    <main>
+    <main className="">
       {/* Banner */}
       <h3>Banner</h3>
 
       {/* Products */}
-      <h3>All Products</h3>
+      <ProductSection />
 
       {/* Reviews/Testimonials */}
       <h3>All Reviews</h3>
