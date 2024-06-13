@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import ActiveLink from "./ActiveLink";
+import { useContext } from "react";
+import { CartContext } from "../../providers/CartProvider";
 
 const Navbar = () => {
+  const { cartItems, cartTotal } = useContext(CartContext);
   return (
     <header className="bg-base-100 borber-b border-2">
       <nav className="max-w-7xl mx-auto">
@@ -32,7 +36,7 @@ const Navbar = () => {
                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <Link to="/about">About</Link>
+                  <ActiveLink to="/about">About</ActiveLink>
                 </li>
                 <li>
                   <a>Products</a>
@@ -46,7 +50,7 @@ const Navbar = () => {
                   </ul>
                 </li>
                 <li>
-                  <Link to="/services">Services</Link>
+                  <ActiveLink to="/services">Services</ActiveLink>
                 </li>
               </ul>
             </div>
@@ -58,7 +62,7 @@ const Navbar = () => {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
               <li>
-                <Link to="/about">About</Link>
+                <ActiveLink to="/about">About</ActiveLink>
               </li>
               <li>
                 <details>
@@ -74,7 +78,7 @@ const Navbar = () => {
                 </details>
               </li>
               <li>
-                <Link to="/services">Services</Link>
+                <ActiveLink to="/services">Services</ActiveLink>
               </li>
             </ul>
           </div>
@@ -101,7 +105,9 @@ const Navbar = () => {
                         d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                       />
                     </svg>
-                    <span className="badge badge-sm indicator-item">8</span>
+                    <span className="badge badge-sm indicator-item">
+                      {cartItems}
+                    </span>
                   </div>
                 </div>
                 <div
@@ -109,8 +115,8 @@ const Navbar = () => {
                   className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
                 >
                   <div className="card-body">
-                    <span className="font-bold text-lg">8 Items</span>
-                    <span className="text-info">Subtotal: $999</span>
+                    <span className="font-bold text-lg">{cartItems} Items</span>
+                    <span className="text-info">Subtotal: ${cartTotal}</span>
                     <div className="card-actions">
                       <button className="btn btn-primary btn-block">
                         View cart
